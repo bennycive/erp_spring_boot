@@ -1,0 +1,56 @@
+# schema.graphqls
+
+type Role {
+    id: ID!
+    name: String!
+    status: String
+    description: String
+    permissions: [Permission]
+    users: [User]
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String
+    firstName: String
+    lastName: String
+    isStaff: Boolean
+    isActive: Boolean
+    dateJoined: String
+    lastLogin: String
+    roles: [Role]
+    permissions: [Permission]
+}
+
+type UserProfile {
+    id: ID!
+    address: String
+    phoneNumber: String
+    gender: String
+    dateOfBirth: String
+    nationality: String
+    profileImageUrl: String
+    user: User
+}
+
+type Permission {
+    id: ID!
+    name: String
+    description: String
+    roles: [Role]
+    users: [User]
+}
+
+type Query {
+    getRoleById(id: ID!): Role
+    getAllRoles: [Role]
+    getUserById(id: ID!): User
+    getAllUsers: [User]
+}
+
+type Mutation {
+    createRole(name: String!, status: String, description: String): Role
+    updateRole(id: ID!, name: String, status: String, description: String): Role
+    deleteRole(id: ID!): String
+}

@@ -24,7 +24,7 @@ public class UserProfile {
     private String address;
 
     // Ensure phoneNumber is unique and required for each user
-    @Column(nullable =true, unique = true)
+    @Column(unique = true)
     private String phoneNumber;
 
     private String gender;

@@ -19,6 +19,7 @@ public class Role {
     private Long id;
 
     private String name;
+    private String status;
 
     private String description;
 
@@ -34,4 +35,5 @@ public class Role {
             inverseJoinColumns = @JoinColumn(name = "permission_id")
     )
     private Set<Permission> permissions;
+
 }
